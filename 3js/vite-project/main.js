@@ -1,3 +1,4 @@
+import { TetrahedronGeometry } from 'three';
 import './style.css'
 import * as THREE from "three";
 
@@ -16,4 +17,15 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize( window.innerWidth, window.innerHeight );
 camera.position.setZ(30);
-renderer.render( scene, camera )
+
+//first arg is vectors to define
+const geometry = new THREE.TorusKnotGeometry( 10, 3, 6, 100);
+const material = new THREE.MeshToonMaterial( { color: 0x019a73, wireframe: true });
+const torus = new THREE.Mesh( geometry, material );
+
+scene.add(torus);
+
+const light = new THREE.AmbientLight( 0x404040 );
+
+
+renderer.render( scene, camera );
