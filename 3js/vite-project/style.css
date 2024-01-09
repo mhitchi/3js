@@ -3,3 +3,21 @@ canvas {
   top: 0;
   left: 0;
 }
+
+main {
+  width: 100vw;
+  z-index: 99;
+  position: absolute;
+  margin: 0px auto;
+  
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+div {
+  grid-column: 4/8;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  margin-top: 50%;
+}

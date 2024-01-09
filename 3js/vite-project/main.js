@@ -18,29 +18,25 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize( window.innerWidth, window.innerHeight );
 camera.position.setZ(30);
+camera.position.setX(-3);
 
 //first arg is vectors to define
 const geometry = new THREE.TorusGeometry( 10, 3, 6, 100);
-const material = new THREE.MeshStandardMaterial( { color: 0xe1f07b });
+const material = new THREE.MeshStandardMaterial( { color: 0xed4e0d });
 const torus = new THREE.Mesh( geometry, material );
 
 scene.add(torus);
 
-const pointLight = new THREE.PointLight( 0xffffff );
-pointLight.position.set( 10,5,10 );
-const pointLight2 = new THREE.PointLight( 0xffffff );
-pointLight2.position.set( -5,5,10 );
-const pointLight3 = new THREE.PointLight( 0xffffff );
-pointLight3.position.set( -1,-5,15 );
-const ambientLight = new THREE.AmbientLight( 0x404040 );
+const pointLight = new THREE.PointLight( 0xffffff, 12.0, 100, 1 );
+pointLight.position.set( 0,0,0 );
 
-scene.add( pointLight, pointLight2, pointLight3, ambientLight );
+const ambientLight = new THREE.AmbientLight( 0xffffff );
+
+scene.add( pointLight, ambientLight );
 
 const lightHelper = new THREE.PointLightHelper(pointLight);
-const lightHelper2 = new THREE.PointLightHelper(pointLight2);
-const lightHelper3 = new THREE.PointLightHelper(pointLight3);
 const gridHelper = new THREE.GridHelper(200,5);
-scene.add(lightHelper, lightHelper2, lightHelper3, gridHelper);
+scene.add(lightHelper, gridHelper);
 
 //lets us move around
 const controls = new OrbitControls( camera, renderer.domElement)
@@ -60,6 +56,28 @@ function addStar() {
 
 Array(200).fill().forEach(addStar);
 
+scene.fog = new THREE.FogExp2( 0x00a9b2, 0.009 );
+scene.background = new THREE.Color( 0x142b5c )
+
+
+//move camera
+function moveCamera() {
+  //first figure out where they are scrolled to
+  //returns dimentions of viewport and how far we are from top
+  const topPosition = document.body.getBoundingClientRect().top;
+
+  torus.rotation.x += 0.06;
+  torus.rotation.y += 0.04;
+  torus.rotation.z += 0.06;
+
+  camera.position.x = topPosition * -0.1;
+  camera.position.y = topPosition * -0.0001;
+  camera.position.z = topPosition * -0.0002;
+
+}
+
+document.body.onscroll = moveCamera;
+
 
 //recursive function (like a game loop) to create infinite loop to call render method automatically
 function animate() {
@@ -67,9 +85,9 @@ function animate() {
   requestAnimationFrame( animate );
 
   //spin it
-  torus.rotation.x += 0.01;
-  torus.rotation.y += 0.005;
-  torus.rotation.z += 0.01;
+  torus.rotation.x += 0.005;
+  torus.rotation.y += 0.0025;
+  torus.rotation.z += 0.005;
 
   //mouse interaction changes reflected in ui
   controls.update(); 
