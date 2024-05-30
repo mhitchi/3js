@@ -1,3 +1,30 @@
+body {
+  margin: 0;
+}
+
+.div1, .div2 {
+  height: 100vh;
+}
+
+.div1 {
+  background-color: pink;
+}
+
+.div2 {
+  background-color: salmon;
+}
+.square {
+  width: 150px;
+  height: 150px;
+  background-color: paleturquoise;
+}
+.square2 {
+  margin-top: 300px;
+  width: 150px;
+  height: 150px;
+  background-color: aliceblue;
+}
+
 canvas {
   position: fixed;
   top: 0;
