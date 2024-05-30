@@ -30,22 +30,10 @@ Scroll to spin a ring, rotate a block, and stack cards.
 code blocks for commands
 ```
 
-## Help
-
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
-
-## Authors
+## Contact author for help
 
 May Hitchings
 mayhitchings.com/development
 mayhitchings@gmail.com
 
-
-## Version History
-
-* 0.1
-    * Initial Release
 
