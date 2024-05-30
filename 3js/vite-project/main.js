@@ -66,9 +66,9 @@ function moveCamera() {
   //returns dimentions of viewport and how far we are from top
   const topPosition = document.body.getBoundingClientRect().top;
 
-  torus.rotation.x += 0.06;
-  torus.rotation.y += 0.04;
-  torus.rotation.z += 0.06;
+  torus.rotation.x += 0.03;
+  torus.rotation.y += 0.02;
+  torus.rotation.z += 0.03;
 
   camera.position.x = topPosition * -0.1;
   camera.position.y = topPosition * -0.0001;
@@ -85,9 +85,9 @@ function animate() {
   requestAnimationFrame( animate );
 
   //spin it
-  torus.rotation.x += 0.005;
-  torus.rotation.y += 0.0025;
-  torus.rotation.z += 0.005;
+  // torus.rotation.x += 0.005;
+  // torus.rotation.y += 0.0025;
+  // torus.rotation.z += 0.005;
 
   //mouse interaction changes reflected in ui
   controls.update(); 
