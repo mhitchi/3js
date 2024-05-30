@@ -5,7 +5,28 @@ body {
 .div1, .div2, .div3 {
   height: 100vh;
 }
+.div3 {
+  padding-top: 8vw
+}
+.card {
+  position: relative;
+  background-color: #fff;
+  border-radius: 30px;
+  border: 2px solid #000;
+  margin-top: 30vh;
+  margin-left:8vw;
+  margin-right: 8vw;
+  height: 50vh;
+}
+.card h2, .card p {
+  color: #000;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
+.card-container {
+  padding: 2rem;
+}
 .div1 {
   background-color: rgb(237,78,13,0.5);
 }
